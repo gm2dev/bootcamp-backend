@@ -1,7 +1,8 @@
 // users.js
-const express = require("express");
+import { authenticate, validateUser } from "../middlewares/logger.js";
+import express from "express";
+
 const router = express.Router();
-const { authenticate, validateUser } = require("./middlewares/logger");
 
 // Sample users data
 let users = [
@@ -79,4 +80,4 @@ router.delete("/:id", authenticate, (req, res) => {
   res.status(200).json({ message: `User ${id} deleted` });
 });
 
-module.exports = router;
+export default router;

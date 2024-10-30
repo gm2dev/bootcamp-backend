@@ -1,9 +1,10 @@
 // app.js
-const express = require("express");
+import { logger, authenticate } from "./middlewares/logger.js";
+import userRouter from "./routes/users.js";
+import express from "express";
+
 const app = express();
 const port = 3005;
-const userRouter = require("./users");
-const { logger, authenticate } = require("./middlewares/logger");
 
 app.use(express.json());
 app.use(logger);
